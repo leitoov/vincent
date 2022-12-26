@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,31 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content,
+ion-footer,
+ion-toolbar {
+  --background: #111111;
+  background: #111111;
+}
+
+p,
+ion-title {
+  color: #ffffff;
+}
+.text-center {
+  text-align: center;
+}
+.p-0 {
+  padding: 0px;
+}
+
+.none {
+  display: none;
+}
+.flex {
+  display: flex;
+}
+img {
+  height: 100%;
+}

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Movies</ion-title>
+    <i class="fal fa-search"></i>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+   
+  </ion-header>
+
+  <div id="container">
+    <ion-card *ngFor="let item of movies; let i = index">
+      <ion-grid class="p-0">
+        <ion-row>
+          <ion-col>
+            <img src="{{item.img}}">
+          </ion-col>
+          <ion-col (click)="editMove(i, item.title)">
+            <h2 class="title">{{item.title}}</h2>
+            <p>{{item.description | slice:0:40 }}...</p>
+            
+            
+            <ng-container *ngFor="let start of  item.qualification, let j = index">
+             
+              <i [ngClass]="item.qualification[j][j] ? 'fas' : 'far' " class="fa-star"></i>
+
+            </ng-container>
+            
+          </ion-col>
+          <ion-col [ngClass]=" edit && title == item.title ? 'flex':'none'" class="edit text-center">
+            <h3>Edit</h3>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer class="text-center">
+  <i class="fal fa-plus"></i>
+</ion-footer>

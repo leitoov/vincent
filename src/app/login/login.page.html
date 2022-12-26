@@ -1,0 +1,29 @@
+<ion-content>
+  <ion-button expand="block" class="btn-red">Outline + Block</ion-button>
+  <div class="logo">
+    <ion-text color="medium"><small>LOGO</small></ion-text>
+  </div>
+
+  <form class="mx-4-percent" [formGroup]="loginform" (ngSubmit)="submitLogin()" class="form">
+    <ion-col size="10">
+      <ion-input type="text" formControlName="username" placeholder="Username"></ion-input>
+    </ion-col>
+    <ion-col size="8">
+      <ion-input type="text" formControlName="password" placeholder="Password"></ion-input>
+    </ion-col>
+          
+    <ion-button class="ion-margin-top" expand="block" color="medium" type="submit" [disabled]="!loginform.valid">
+      <span class="my-auto">Login</span>
+    </ion-button>
+  <div>
+    <ion-text>
+      <p class="text-center">Create Account</p>
+    </ion-text>
+  </div>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-text>
+    <p class="text-center">Forgot Password?</p>
+  </ion-text>
+</ion-footer>
