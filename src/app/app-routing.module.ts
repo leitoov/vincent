@@ -8,6 +8,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'movie/:id',
+    loadChildren: () =>
+      import('./movie/movie.module').then((m) => m.MoviePageModule),
+  },
+  {
     path: 'movies',
     loadChildren: () =>
       import('./movies/movies.module').then((m) => m.MoviesPageModule),

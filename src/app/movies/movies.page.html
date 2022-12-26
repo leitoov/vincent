@@ -33,7 +33,7 @@
             
           </ion-col>
           <ion-col [ngClass]=" edit && title == item.title ? 'flex':'none'" class="edit text-center">
-            <h3>Edit</h3>
+            <h3 (click)="movie(i)">Edit</h3>
           </ion-col>
         </ion-row>
       </ion-grid>
