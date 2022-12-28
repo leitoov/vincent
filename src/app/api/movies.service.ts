@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 interface Movie {
+  id: number;
   title: string;
   img: string;
   description: string;
@@ -9,13 +10,15 @@ interface Movie {
   providedIn: 'root',
 })
 export class MoviesService {
-  public movies!: Movie[];
+  public movies: Movie[] | string | null = '';
 
   constructor() {}
 
-  public ListMovies() {
+  //Peliculas cargadas por defecto
+  public ListMoviesDefault() {
     return (this.movies = [
       {
+        id: 0,
         title: 'Wendell & Wild',
         img: 'https://cdn.superaficionados.com/imagenes/11-wendell-wild-cke.jpg',
         description:
@@ -39,6 +42,7 @@ export class MoviesService {
         ],
       },
       {
+        id: 1,
         title: 'Hocus Pocus 2',
         img: 'https://cdn.superaficionados.com/imagenes/10-hocus-pocus-2-cke.jpg',
         description:
@@ -62,6 +66,7 @@ export class MoviesService {
         ],
       },
       {
+        id: 2,
         title: 'The Munsters',
         img: 'https://cdn.superaficionados.com/imagenes/9-the-munsters-cke.jpg',
         description:
@@ -86,4 +91,21 @@ export class MoviesService {
       },
     ]);
   }
+  public ListMovies() {
+    return this.ListMoviesDefault();
+  }
+
+  public Movie(id: number) {
+    return this.ListMoviesDefault().find((x) => x.id == id);
+  }
+
+  public Edit(id: number, edit: string) {
+    const moviedit = this.ListMoviesDefault().find((x) => x.id == id);
+    if (moviedit?.description != undefined) {
+      moviedit.description = edit;
+    }
+    return moviedit;
+  }
+
+  public DeleteMovie(id: number) {}
 }

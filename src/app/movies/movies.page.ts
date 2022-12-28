@@ -9,9 +9,10 @@ import { MoviesService } from '../api/movies.service';
 })
 export class MoviesPage implements OnInit {
   public folder: string = '';
-  public movies: Array<any> = [];
+  public movies: any;
   public edit: boolean = false;
   public title: string = '';
+
   constructor(
     private activatedRoute: ActivatedRoute,
     public moviesService: MoviesService,

@@ -1,7 +1,32 @@
+<ion-header>
+  <i class="fas fa-chevron-left" (click)="back()"></i>
 
-
+  <i class="fas fa-pencil-alt" (click)="Edit()"></i>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <h2>{{movie.title}}</h2>
- <img src="{{movie.img}}">
- <p>{{movie.description}}</p>
+  
+  <h2 class="text-center">{{movie.title}}</h2>
+  <div class="container">
+    <img src="{{movie.img}}">
+    <p>Calificacion</p>
+    <ng-container *ngFor="let start of  movie.qualification, let j = index">
+                
+     <i [ngClass]="movie.qualification[j][j] ? 'warning fas' : 'far' " class="fa-star"></i>
+   
+   </ng-container>
+  </div>
+  <div class="description">
+    <p *ngIf="!edit">{{movie.description}}</p>
+    <ng-container *ngIf="edit">
+      <form [formGroup]="editmovie" (ngSubmit)="Editar()" >
+
+      <textarea  value="{{movie.description}}" formControlName="TextMovie"></textarea>
+      <ion-button class="ion-margin-top" expand="block" type="submit">
+        <span class="my-auto">Editar</span>
+      </ion-button>
+      </form>
+      
+    </ng-container>
+  </div>
+
 </ion-content>
